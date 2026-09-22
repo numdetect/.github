@@ -8,16 +8,22 @@ Upload a phone-number list, pick one product and one country, and download a str
 
 ### Official API example repositories
 
+One repository per product, each mirroring its own product page.
+
 | Repository | Shape | Product code | Contents |
 |---|---|---|---|
-| **[Bulk phone-number tasks](https://github.com/numdetect/bulk-phone-number-api)** | Bulk (async) | 5 products | OpenAPI contract, `product.json`, `llms.txt`, examples in 7 languages |
+| **[Bulk Number Activity](https://github.com/numdetect/phone-bulk-activity-api)** | Bulk (async) | `number_activity_batch` | Input: phone · OpenAPI contract, `product.json`, `llms.txt`, examples in 7 languages |
+| **[Bulk Global Carrier Lookup](https://github.com/numdetect/phone-bulk-carrier-api)** | Bulk (async) | `global_carrier_batch` | Input: phone · OpenAPI contract, `product.json`, `llms.txt`, examples in 7 languages |
+| **[Bulk E-commerce Active](https://github.com/numdetect/phone-bulk-ecommerce-api)** | Bulk (async) | `number_ecommerce_batch` | Input: phone · OpenAPI contract, `product.json`, `llms.txt`, examples in 7 languages |
+| **[Bulk High-Value Users](https://github.com/numdetect/phone-bulk-high-value-api)** | Bulk (async) | `number_high_value_batch` | Input: phone · OpenAPI contract, `product.json`, `llms.txt`, examples in 7 languages |
+| **[Bulk Phone Number Validation](https://github.com/numdetect/phone-bulk-validation-api)** | Bulk (async) | `number_validation_batch` | Input: phone · OpenAPI contract, `product.json`, `llms.txt`, examples in 7 languages |
 | [numdetect-resources](https://github.com/numdetect/numdetect-resources) | — | — | Technical notes, guides and announcements |
 
 Every example repository carries a machine-readable `product.json`, an `llms.txt` summary for AI clients, an OpenAPI 3.0 contract, and runnable examples in Python, Node.js, Go, Java, C#, PHP and Shell. All request paths, response fields and limits are taken from the live product pages and the published API documentation.
 
 ### Bulk only
 
-`POST /api/v1/bulk-tasks` takes a `.txt`/`.csv` file of 500–100,000 numbers, returns a task id immediately, and produces a downloadable result file. There is **no realtime single-number endpoint** on this brand — a task is the product. Poll no more often than once every 30 seconds.
+`POST /api/v1/bulk-tasks` takes a `.txt`/`.csv` file of 500–100,000 numbers, returns a task id immediately, and produces a downloadable result file. There is **no realtime single-number endpoint** on this brand — a task is the product. One task carries one product and one country. Poll no more often than once every 30 seconds.
 
 ### One key, one balance
 
