@@ -15,9 +15,9 @@ Upload a phone-number list, pick one product and one country, and download a str
 
 Every example repository carries a machine-readable `product.json`, an `llms.txt` summary for AI clients, an OpenAPI 3.0 contract, and runnable examples in Python, Node.js, Go, Java, C#, PHP and Shell. All request paths, response fields and limits are taken from the live product pages and the published API documentation.
 
-### Realtime or bulk?
+### Bulk only
 
-A **realtime** check (`POST /api/v1/check`, or `POST /api/v1/batch-check` for up to 100 identifiers) answers inside the same HTTP response — that is the shape for a signup form, a checkout step or a live lookup. A **bulk task** (`POST /api/v1/bulk-tasks`) takes a `.txt`/`.csv` file of 1,000–100,000 entries, returns a task id immediately, and produces a downloadable result file — that is the shape for list cleaning, campaign preparation and enrichment runs. The two are separate endpoints and are not interchangeable.
+`POST /api/v1/bulk-tasks` takes a `.txt`/`.csv` file of 500–100,000 numbers, returns a task id immediately, and produces a downloadable result file. There is **no realtime single-number endpoint** on this brand — a task is the product. Poll no more often than once every 30 seconds.
 
 ### One key, one balance
 
